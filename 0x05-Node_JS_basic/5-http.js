@@ -7,8 +7,9 @@ function countStudents(path, stream) {
     const data = fs.readFileSync(path, 'utf8');
     const result = [];
     data.split('\n').forEach((data) => {
-	  if (data.length)
-      	result.push(data.split(','));
+		if (data.length){
+      		result.push(data.split(','));
+		}
     });
     result.shift();
     const newis = [];
