@@ -11,6 +11,7 @@ class StudentsController{
 	 * @param {*} res - response object
 	 */
 	static async getAllStudents(req, res){
+  		res.set('Content-Type', 'text/plain');
 		const path = req.query.file || process.argv[2];
 		try{
 			const data = await readDatabase(path);
@@ -36,6 +37,7 @@ class StudentsController{
 	 * @param {*} res response object
 	 */
 	static async getAllStudentsByMajor(req, res){
+  		res.set('Content-Type', 'text/plain');
 		const path = req.query.file || process.argv[2];
 		const major = req.params.major
 
