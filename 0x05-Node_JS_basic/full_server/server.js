@@ -1,9 +1,10 @@
-const express = require('express');
+import express from 'express'
+import router from './routes'
 
 const app = express();
 
-require("./routes")(app)
+router(app);
 
 app.listen(1245, () => {})
 
-module.exports = app
+export default app

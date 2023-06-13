@@ -1,4 +1,4 @@
-const {readDatabase} = require("../utils")
+import {readDatabase} from "../utils.js"
 
 /**
  * StudentsController - handle students requests response
@@ -55,4 +55,4 @@ class StudentsController{
 
 }
 
-module.exports = StudentsController
+export default StudentsController

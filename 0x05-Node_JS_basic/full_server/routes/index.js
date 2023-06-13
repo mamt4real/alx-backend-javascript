@@ -1,8 +1,10 @@
-const AppController = require('../controllers/AppController')
-const StudentController = require('../controllers/StudentsController')
+import AppController from '../controllers/AppController.js'
+import StudentController from '../controllers/StudentsController.js'
 
-module.exports = (app) => {
+const router = (app) => {
 	app.get("/", AppController.getHomepage);
 	app.get("/students", StudentController.getAllStudents)
 	app.get("/students/:major", StudentController.getAllStudentsByMajor)
 }
+
+export default router

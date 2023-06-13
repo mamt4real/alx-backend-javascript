@@ -1,11 +1,11 @@
-const {readFile} = require("fs/promises")
+import {readFile} from "fs/promises"
 
 /**
  * readDatabase - reads a database file
  * @param {string} path - file path
  * @return {*} object of arrays of firstname per field
  */
-const readDatabase = async (path) => {
+export const readDatabase = async (path) => {
 	try{
 		const content = await readFile(path, {encoding: "utf8"});
 		const lines = content.split("\n");
@@ -24,8 +24,4 @@ const readDatabase = async (path) => {
 	}catch (error){
 		Promise.reject(error)
 	}
-}
-
-module.exports = {
-	readDatabase
 }

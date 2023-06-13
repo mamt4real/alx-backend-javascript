@@ -18,7 +18,8 @@ app.get('/students', (req, res) => {
     }
     const result = [];
     data.split('\n').forEach((data) => {
-      result.push(data.split(','));
+	  if (data.length)
+      	result.push(data.split(','));
     });
     result.shift();
     const newis = [];
