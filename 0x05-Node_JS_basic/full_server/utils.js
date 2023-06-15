@@ -1,27 +1,26 @@
-import {readFile} from "fs/promises"
+const { readFile } = require('fs');
 
-/**
- * readDatabase - reads a database file
- * @param {string} path - file path
- * @return {*} object of arrays of firstname per field
- */
-export const readDatabase = async (path) => {
-	try{
-		const content = await readFile(path, {encoding: "utf8"});
-		const lines = content.split("\n");
-		lines.shift(0);
-		const result = {}
-		lines.forEach((line) => {
-			const columns = line.split(",");
-			if (columns.length < 4) return;
-			const [firstName, _, __, field] = columns;
-			if (result.hasOwnProperty(field))
-				result[field.toUpperCase()].push(firstName);
-			else
-				result[field.toUpperCase()] = [firstName];
-		});
-		return result
-	}catch (error){
-		Promise.reject(error)
-	}
-}
+module.exports = function readDatabase(filePath) {
+  const students = {};
+  return new Promise((resolve, reject) => {
+    readFile(filePath, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        const lines = data.toString().split('\n');
+        const noHeader = lines.slice(1);
+        for (let i = 0; i < noHeader.length; i += 1) {
+          if (noHeader[i]) {
+            const field = noHeader[i].toString().split(',');
+            if (Object.prototype.hasOwnProperty.call(students, field[3])) {
+              students[field[3]].push(field[0]);
+            } else {
+              students[field[3]] = [field[0]];
+            }
+          }
+        }
+        resolve(students);
+      }
+    });
+  });
+};
