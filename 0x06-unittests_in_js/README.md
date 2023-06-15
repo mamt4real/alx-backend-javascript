@@ -15,3 +15,22 @@ Resources
 
 ## Descriptions
 writing unittests in javascript
+## Tasks
+* [0-calcul.js](0-calcul.js)
+* [0-calcul.test.js](0-calcul.test.js)
+* [1-calcul.js](1-calcul.js)
+* [1-calcul.test.js](1-calcul.test.js)
+* [2-calcul_chai.js](2-calcul_chai.js)
+* [2-calcul_chai.test.js](2-calcul_chai.test.js)
+* [3-payment.js](3-payment.js)
+* [3-payment.test.js](3-payment.test.js)
+* [4-payment.js](4-payment.js)
+* [4-payment.test.js](4-payment.test.js)
+* [5-payment.js](5-payment.js)
+* [5-payment.test.js](5-payment.test.js)
+* [6-payment_token.js](6-payment_token.js)
+* [6-payment_token.test.js](6-payment_token.test.js)
+* [7-skip.test.js](7-skip.test.js)
+* [README.md](README.md)
+* [package.json](package.json)
+* [utils.js](utils.js)
