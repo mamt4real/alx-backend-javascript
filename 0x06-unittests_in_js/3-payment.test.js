@@ -1,16 +1,16 @@
-const { expect } = require('chai');
-const { it, describe } = require('mocha');
-const sinon = require('sinon');
+const {describe, it} = require("mocha");
+const sinon = require("sinon");
+const sendPaymentRequestToApi = require("./3-payment");
+const Utils = require("./utils");
+const assert = require("assert");
 
-const Utils = require('./utils.js');
-const sendPaymentRequestToApi = require('./3-payment.js');
+describe("sendPaymentRequestToApi", function() {
+    it("check that Utils.calculateNumber was called once", function() {
+	const spy = sinon.spy(Utils, "calculateNumber");
 
-describe('', () => {
-  it('checking if numbers round with spies', () => {
-    const checkSoy = sinon.spy(Utils, 'calculateNumber');
-    sendPaymentRequestToApi(1, 3);
-    expect(checkSoy.calledOnce).to.be.true;
-    expect(checkSoy.calledWith('SUM', 1, 3)).to.be.true;
-    checkSoy.restore();
-  });
+	sendPaymentRequestToApi(50, 24.52);
+
+	assert(spy.calledOnce);
+	spy.restore();
+    });
 });

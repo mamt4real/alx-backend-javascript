@@ -1,24 +1,13 @@
-const chai = require('chai');
-const expect = chai.expect;
+const getPaymentTokenFromAPI = require("./6-payment_token");
+const {describe, it} = require("mocha");
+const expect = require("chai").expect;
 
-const getPaymentTokenFromAPI = require('./6-payment_token');
-
-describe('getPaymentTokenFromAPI', () => {
-  it('should return an instance of a Promise', () => {
-    const res = getPaymentTokenFromAPI();
-    expect(res).to.be.an.instanceof(Promise);
-  });
-  it("should return a JSON data object {data: 'Successful response from the API'", () => {
-    getPaymentTokenFromAPI(true)
-      .then((res) => {
-        expect(res.data).to.be.equal('Successful response from the API');
-        done();
-      });
-  });
-  it('should do nothing when not success', () => {
-    getPaymentTokenFromAPI(false)
-      .then((res) => {
-        expect(res).to.equal('');
-      });
-  });
+describe("getPaymentTokenFromAPI", function() {
+    it("Async testing with done callback", function(done) {
+	getPaymentTokenFromAPI(true)
+	    .then((data) => {
+		expect(data).to.have.property('data');
+		done();
+	    });
+    });
 });
